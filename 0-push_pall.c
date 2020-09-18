@@ -10,17 +10,17 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *new;
 	char *number;
 
+	number = strtok(NULL, "\n\t\r ");
+        if (number == NULL || (!isdigit(number[0]) && number[0] != '-'))
+        {
+                printf("L%u: usage: push integer\n", line_number);
+                exit(EXIT_FAILURE);
+        }
+
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	number = strtok(NULL, "\n\t\r ");
-	if (number == NULL || (!isdigit(number[0]) && number[0] != '-'))
-	{
-		printf("L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 

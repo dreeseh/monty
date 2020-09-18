@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * mul - multiplies the second top element with the top
+ * _mul - multiplies the second top element with the top
  * @stack: pointer to the top of the stack
  * @line_number: line number from monty file
  * Return: is void
