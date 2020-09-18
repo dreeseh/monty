@@ -7,7 +7,8 @@
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new = *stack;
+	int node_value;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
@@ -15,15 +16,14 @@ void _swap(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new = (*stack)->next;
-	(*stack)->prev = new;
-	new->prev = NULL;
-	(*stack)->next = new->next;
 
 	if (new->next != NULL)
 	{
-		new->next = *stack;
-		new->prev = *stack;
-		*stack = new;
+		new = new->next;
 	}
+
+	node_value = new->prev->n;
+	new->prev->n = new->n;
+	new->n = node_value;
+
 }
