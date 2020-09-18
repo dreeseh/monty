@@ -1,5 +1,5 @@
 #include "monty.h"
-global_t globe = {NULL, NULL, NULL};
+global_t.globe = {NULL, NULL, NULL};
 /**
  * main - entry point
  * @argc: the number of arguments
